@@ -18,7 +18,7 @@ class Topic(models.Model):
 
 class PostQuerySet(models.QuerySet):
     def published(self):
-        return self
+        return self.filter(status=self.model.PUBLISHED)
 
 class Post(models.Model):
     """
