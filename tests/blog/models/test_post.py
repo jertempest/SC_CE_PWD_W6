@@ -15,6 +15,7 @@ def test_published_posts_only_returns_those_with_published_status():
     result = list(Post.objects.published())
     
     assert result == expected
+
 def test_draft_posts_only_returns_those_with_draft_status():
     draft = baker.make('blog.Post', status=Post.DRAFT)
     baker.make('blog.Post', status=Post.PUBLISHED)
@@ -24,3 +25,8 @@ def test_draft_posts_only_returns_those_with_draft_status():
     result = list(Post.objects.draft())
     
     assert result == expected
+
+def test_publish_sets_status_to_published():
+    post = baker.make('blog.Post', status=Post.DRAFT)
+    post.publish()
+    assert post.status == Post.PUBLISHED

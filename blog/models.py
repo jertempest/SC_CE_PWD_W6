@@ -69,6 +69,9 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     prepopulated_fields = {'slug':('title,')}
     
+    def publish(self):
+        pass
+    
     class Meta:
         """
         sort by the 'created' field. The '-' prefix
