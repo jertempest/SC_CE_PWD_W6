@@ -70,7 +70,7 @@ class Post(models.Model):
     prepopulated_fields = {'slug':('title,')}
     
     def publish(self):
-        pass
+        self.status = self.PUBLISHED
     
     class Meta:
         """
