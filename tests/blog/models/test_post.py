@@ -15,4 +15,5 @@ def test_published_posts_only_returns_those_with_published_status():
     result = list(Post.objects.published())
     
     assert result == expected
-    
+def test_draft_posts_only_returns_those_with_draft_status():
+    assert False

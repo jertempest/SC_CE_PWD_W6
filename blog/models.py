@@ -19,7 +19,10 @@ class Topic(models.Model):
 class PostQuerySet(models.QuerySet):
     def published(self):
         return self.filter(status=self.model.PUBLISHED)
-
+    
+    def draft(self):
+        return self.filter(status=self.model.DRAFT)
+    
 class Post(models.Model):
     """
     Represents a blog post
