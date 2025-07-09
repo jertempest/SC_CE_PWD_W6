@@ -16,6 +16,10 @@ class Topic(models.Model):
     class Meta:
         ordering = ['name']
 
+class PostQuerySet(models.QuerySet):
+    def published(self):
+        return self
+
 class Post(models.Model):
     """
     Represents a blog post
@@ -71,4 +75,6 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+    objects = PostQuerySet.as_manager()
 
